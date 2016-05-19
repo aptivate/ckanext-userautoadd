@@ -8,8 +8,8 @@ import ckan.plugins.toolkit as toolkit
 def user_create(context, data_dict):
     user = ckan_user_create(context, data_dict)
 
-    org_name = config.get('ckan.userautoadd_organization_name', '')
-    role = config.get('ckan.userautoadd_organization_role', '')
+    org_name = config.get('ckan.userautoadd.organization_name', '')
+    role = config.get('ckan.userautoadd.organization_role', '')
 
     try:
         toolkit.get_action('organization_show')(

@@ -17,9 +17,9 @@ class TestUserCreate(helpers.FunctionalTestBase):
         plugins.add('userautoadd')
         cfg['ckan.plugins'] = ' '.join(plugins)
 
-    @helpers.change_config('ckan.userautoadd_organization_name',
+    @helpers.change_config('ckan.userautoadd.organization_name',
                            'mapaction')
-    @helpers.change_config('ckan.userautoadd_organization_role',
+    @helpers.change_config('ckan.userautoadd.organization_role',
                            'editor')
     def test_new_user_added_to_organization(self):
         user = helpers.call_action(
