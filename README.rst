@@ -32,26 +32,18 @@
 ckanext-userautoadd
 =============
 
-.. Put a description of your extension here:
-   What does it do? What features does it have?
-   Consider including some screenshots or embedding a video!
-
+Adds new users to an existing organization.
 
 ------------
 Requirements
 ------------
 
-For example, you might want to mention here which versions of CKAN this
-extension works with.
-
+Tested with CKAN v2.5.2
 
 ------------
 Installation
 ------------
 
-.. Add any additional install steps to the list below.
-   For example installing any non-Python dependencies or adding any required
-   config settings.
 
 To install ckanext-userautoadd:
 
@@ -76,11 +68,11 @@ To install ckanext-userautoadd:
 Config Settings
 ---------------
 
-Document any optional config settings here. For example::
+    # The organization to which new users are added
+    ckan.userautoadd.organization_name = my_organization
 
-    # The minimum number of hours to wait before re-checking a resource
-    # (optional, default: 24).
-    ckanext.userautoadd.some_setting = some_default_value
+    # The role the new users will have
+    ckan.userautoadd.organization_role = editor
 
 
 ------------------------
