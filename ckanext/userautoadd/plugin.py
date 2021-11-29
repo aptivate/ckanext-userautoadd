@@ -23,10 +23,22 @@ class UserautoaddPlugin(plugins.SingletonPlugin):
         }
 
     def before_map(self, map):
-        controller='ckanext.userautoadd.controllers.admin_controller:CustomAdminController'
+        controller_adm = \
+            'ckanext.userautoadd.controllers.admin_controller:\
+            CustomAdminController'
+        controller_user = \
+            'ckanext.userautoadd.controllers.user_controller:\
+            OverrideUserController'
         map.connect(
             '/ckan-admin/trash',
-            controller=controller,
+            controller=controller_adm,
             action='trash'
             )
+        map.connect(
+            '/user/edit/{id}',
+            controller=controller_user,
+            action='edit',
+            ckan_icon='cog'
+        )
+
         return map
