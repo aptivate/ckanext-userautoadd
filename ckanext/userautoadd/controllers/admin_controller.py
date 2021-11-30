@@ -1,6 +1,4 @@
 from ckan.controllers.admin import AdminController
-from ckan.common import config
-
 import ckan.lib.base as base
 import ckan.lib.helpers as h
 import ckan.model as model
@@ -9,14 +7,18 @@ from ckan.lib.base import BaseController
 from ckan.plugins.toolkit import c, request, _
 from ckan.authz import has_user_permission_for_group_or_org
 
+
 class CustomAdminController(BaseController):
     def __before__(self, action, **params):
         super(CustomAdminController, self).__before__(action, **params)
         context = {'model': model,
                    'user': c.user, 'auth_user_obj': c.userobj}
         if action == u"trash" and c.user:
-            # 'delete_dataset' is a permision that only org `editor` or `admin` has
-            if has_user_permission_for_group_or_org('mapaction', c.user, 'delete_dataset'):
+            # 'delete_dataset' is a permision that only
+            #  org `editor` or `admin` has
+            if has_user_permission_for_group_or_org('mapaction',
+                                                    c.user,
+                                                    'delete_dataset'):
                 context['ignore_auth'] = True
             try:
                 logic.check_access('sysadmin', context, {})
