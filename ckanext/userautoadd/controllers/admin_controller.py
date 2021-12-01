@@ -38,7 +38,7 @@ class CustomAdminController(BaseController):
                                   in request.params):
             return base.render('admin/trash.html')
         else:
-            # NB: we repeat retrieval of of revisions
+            # NB: we repeat retrieval of revisions
             # this is obviously inefficient (but probably not *that* bad)
             # but has to be done to avoid (odd) sqlalchemy errors (when doing
             # purge packages) of form: "this object already exists in the
