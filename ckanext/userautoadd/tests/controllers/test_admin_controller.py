@@ -52,7 +52,7 @@ class TestCustomAdminController(helpers.FunctionalTestBase):
         assert response.status_int == 403
 
     def test_no_user(self):
-        """Test without a loged in user"""
+        """Test without a logged in user"""
         env = {'REMOTE_USER': ''}
         response = self.app.get(
             url='%s/ckan-admin/trash' % self.site_url,
